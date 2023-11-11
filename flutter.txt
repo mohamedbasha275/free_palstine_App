@@ -1,6 +1,6 @@
 // generate keystore
-keytool -genkey -v -keystore ~/poems-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias poems
-password:poems-9-2023
+keytool -genkey -v -keystore ~/palestiny-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias palestiny
+password:palestiny-11-2023
 ----------------------------------------
 What is your first and last name?
 ----
@@ -18,7 +18,7 @@ yes
 ----
 Enter key password for
         (RETURN if same as keystore password):
-password:poems-9-2023
+password:palestiny-11-2023
 -----------------------------------------------------------------------------------------
 // run null saftey
 flutter run --no-sound-null-safety
@@ -29,7 +29,7 @@ flutter pub run flutter_native_splash:create
 -----------------------------------------------------------------------------------------
 // change name of app package
 = install : change_app_package_name
-flutter pub run change_app_package_name:main com.dawawin.app
+flutter pub run change_app_package_name:main com.palestiny.app
 // change name of the app
 -----------------------------------------------------------------------------------------
 // launch icons of the app
@@ -38,11 +38,11 @@ flutter pub run flutter_launcher_icons:main
 -----------------------------------------------------------------------------------------
 //move key store to [project]/android/app
 //Create a file named [project]/android/key.properties that contains a reference to your keystore:
-storePassword=poems-9-2023
-keyPassword=poems-9-2023
+storePassword=palestiny-11-2023
+keyPassword=palestiny-11-2023
 keyAlias=poems
-#storeFile=../app/poems-keystore.jks
-storeFile=../app/poems.keystore
+#storeFile=../app/palestiny-keystore.jks
+storeFile=../app/palestiny.keystore
 -----------------------------------------------------------------------------------------
 Configure gradle to use your upload key when building your app in release mode by editing the
     [project]/android/app/build.gradle file.

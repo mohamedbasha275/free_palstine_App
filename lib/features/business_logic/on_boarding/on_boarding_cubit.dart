@@ -16,16 +16,19 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   bool isLast = false;
   List<BoardingModel> boardingPages = [
     BoardingModel(
-      image: JsonAssets.onBoarding1,
-      title: 'العب الان مع الأصدقاء , يمكنك اختيار خصم عشوائي!',
+      image: ImageAssets.onBoarding1,
+      title: 'فلسطين التاريخ',
+      body: 'أعرف كل حاجة عن وطنك و حدوده الجغرافية ، وعلشان محدش يغشك في التاريخ ففلسطين التاريخ',
     ),
     BoardingModel(
-      image: JsonAssets.onBoarding2,
-      title: 'يمكنك الان جمع النقاط واستخدامها في تغيير الافاتار!',
+      image: ImageAssets.onBoarding2,
+      title: 'أختبر معلوماتك',
+      body: 'أختبر معلوماتك التاريخية والجغرافية والدينية عن فلسطين ف أكتر من ١٠٠٠ سؤال',
     ),
     BoardingModel(
-      image: JsonAssets.onBoarding3,
-      title: 'اطلع علي احصائياتك !',
+      image: ImageAssets.onBoarding3,
+      title: 'استمرار المقاطعة',
+      body: 'إحنا بنقاطع علشان نعرفهم إن مهما كان المميزات كتير بس دم أخواتنا أغلي ومش هنتخلي عنهم ولو بأقل حاجة',
     ),
   ];
 

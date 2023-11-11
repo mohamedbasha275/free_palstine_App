@@ -100,11 +100,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     onPressed: () {
                       pushAndRemoveRoute(context, Routes.home);
                     },
-                    icon: Icon(
-                      Icons.home,
-                      color: AppColors.nearWhiteGreen,
-                      size: 30,
-                    ),
+                    icon: Image.asset('assets/images/home.png'),
                   ),
                 ),
                 20.heightSizedBox,

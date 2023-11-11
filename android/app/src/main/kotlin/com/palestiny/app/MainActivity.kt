@@ -1,4 +1,4 @@
-package com.example.free_palestine
+package com.palestiny.app
 
 import io.flutter.embedding.android.FlutterActivity
 

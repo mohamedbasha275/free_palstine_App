@@ -1,11 +1,7 @@
-import 'package:free_palestine/features/presentation/views/cotts/cotts_screen.dart';
-import 'package:free_palestine/features/presentation/views/landing/landing_screen.dart';
-import 'package:free_palestine/features/presentation/views/questions/questions_screen.dart';
-import 'package:free_palestine/features/presentation/views/room/room_result_screen.dart';
+import 'package:free_palestine/features/presentation/views/cities/cities_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_palestine/core/bloc_observer/bloc_observer.dart';
-import 'package:free_palestine/core/constants/constants.dart';
 import 'package:free_palestine/core/di/service_locator.dart';
 import 'package:free_palestine/core/resources/app_constants.dart';
 import 'package:free_palestine/core/resources/app_routers.dart';
@@ -28,17 +24,12 @@ Future<void> _initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupServiceLocator();
   Bloc.observer = MyBlocObserver();
-  // await MobileAds.instance.initialize();
-  // await AuthRepoImpl(getIt.get<ApiService>()).hasUserPaid();
 }
 
 Future<Widget> _getStartWidget() async {
   AppPreferences appPreferences = getIt.get<AppPreferences>();
-  currentUserName = await appPreferences.getUserName();
   if (await appPreferences.isOnBoardingScreenViewed()) {
-    return await appPreferences.isLogged()
-        ? const LandingScreen()
-        : const HomeScreen();
+    return const HomeScreen();
   } else {
     return const OnBoardingScreen();
   }
@@ -64,7 +55,7 @@ class MyApp extends StatelessWidget {
               title: AppConstants.appName,
               debugShowCheckedModeBanner: false,
               theme: state.themeMode == MyThemeMode.light ? lightTheme : darkTheme,
-              home: const CottsScreen(),
+              home: const OnBoardingScreen(),
               onGenerateRoute: RouteGenerator.getRoute,
             );
           } else {

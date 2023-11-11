@@ -32,10 +32,11 @@ dependencies:
   percent_indicator: ^4.2.3
   carousel_slider: ^4.2.1
   word_search_safety: ^0.1.2-nullsafety.1
+  url_launcher: ^6.2.1
 
 # flutter_native_splash
 flutter_native_splash:
-  color: "#ffffff"
+  color: "#dcf8ff"
   image: assets/images/splash.png
   fill: true
   fullscreen: true

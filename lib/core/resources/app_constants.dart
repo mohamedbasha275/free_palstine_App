@@ -1,6 +1,6 @@
 class AppConstants {
   //
-  static const String appName = 'مدينتي';
+  static const String appName = 'فلسطيني';
   static const int onBoardingPageSpeed = 750;
   static const int bottomNavSpeedTime = 500;
   static const int expandSpeedTime = 10;

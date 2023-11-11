@@ -19,6 +19,10 @@ class ImageAssets {
   static const String joinRoom = "$imagePath/join_room.png";
   static const String arrow = "$imagePath/arrow.png";
 
+  static const String onBoarding1 = '$imagePath/onboard1.png';
+  static const String onBoarding2 = '$imagePath/onboard2.png';
+  static const String onBoarding3 = '$imagePath/onboard3.png';
+
   // helpers
   static const String empty = "$imagePath/empty2.png";
   static const String error = "$imagePath/error.png";

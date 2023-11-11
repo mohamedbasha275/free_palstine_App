@@ -1,6 +1,7 @@
 import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/helper_functions/route_navigation.dart';
 import 'package:free_palestine/core/resources/app_assets.dart';
+import 'package:free_palestine/core/resources/app_colors.dart';
 import 'package:free_palestine/core/resources/app_fonts.dart';
 import 'package:free_palestine/core/resources/app_routers.dart';
 import 'package:free_palestine/core/resources/values_manager.dart';
@@ -27,9 +28,21 @@ class HomeScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
+              child: Center(
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.only(top: 120),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  child: Text('#فلسطين-قضيتي',style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    color: AppColors.white,
+                  )),
+                ),
+              ),
             ),
             Container(
-              height: context.screenHeight,
+              height: context.screenHeight - 325,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -45,16 +58,27 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        buildGestureDetector(context,image: 'assets/images/history.png',title:  'تاريخ فلسطين',route: ''),
-                        buildGestureDetector(context,image: 'assets/images/palestine.png',title:  'مدن فلسطين',route: ''),
+                        buildGestureDetector(context,
+                            image: 'assets/images/history.png',
+                            title: 'تاريخ فلسطين',
+                            route: ''),
+                        buildGestureDetector(context,
+                            image: 'assets/images/palestine.png',
+                            title: 'مدن فلسطين',
+                            route: Routes.cities),
                       ],
                     ),
                     30.heightSizedBox,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        buildGestureDetector(context,image: 'assets/images/cott.png',title:  'المقاطعات',route: ''),
-                        buildGestureDetector(context,image: 'assets/images/quiz.png',title:  'اختبر معلوماتك',
+                        buildGestureDetector(context,
+                            image: 'assets/images/cott.png',
+                            title: 'المقاطعات',
+                            route: Routes.boyCotts),
+                        buildGestureDetector(context,
+                            image: 'assets/images/quiz.png',
+                            title: 'اختبر معلوماتك',
                             route: Routes.questions),
                       ],
                     ),
@@ -85,11 +109,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Image.asset(
-                image
-              ),
+              child: Image.asset(image),
             ),
-           // 10.heightSizedBox,
+            // 10.heightSizedBox,
             Padding(
               padding: const EdgeInsets.only(bottom: 10.0),
               child: Text(
