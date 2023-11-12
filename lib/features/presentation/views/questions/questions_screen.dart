@@ -1,15 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:free_palestine/core/di/service_locator.dart';
 import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/helper_functions/route_navigation.dart';
 import 'package:free_palestine/core/resources/app_colors.dart';
 import 'package:free_palestine/core/resources/app_fonts.dart';
 import 'package:free_palestine/core/resources/app_routers.dart';
+import 'package:free_palestine/core/shared_preferences/app_prefs.dart';
 import 'package:free_palestine/features/data/local/questions_list.dart';
 import 'package:free_palestine/features/presentation/common/custom_button.dart';
 import 'package:free_palestine/features/presentation/common/gradient_background.dart';
 import 'package:free_palestine/features/presentation/common/loading_widget.dart';
+import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -60,18 +63,29 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return Container();
   }
 
+  int exams = 0;
+  int points = 0;
+  AppPreferences appPreferences = getIt.get<AppPreferences>();
   @override
   void initState() {
     super.initState();
     questions = List<QuestionModel>.from(questionsList)..shuffle(Random());
     questions = questions.take(3).toList();
+    getDegree();
     Future.delayed(const Duration(seconds: 1)).then((value) {
       setState(() {
         isLoading = false;
       });
     });
   }
-
+  Future<void> getDegree() async{
+    List<int> degree = await appPreferences.getExamPoints();
+    print('degree:$degree');
+    setState(() {
+      exams = degree[0];
+      points = degree[1];
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return GradientBackground(
@@ -105,12 +119,103 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ),
                 20.heightSizedBox,
                 Center(
-                  child: Text(
-                    'لن تختفي أمة نالت من المعرفة ما يكفيها للبقاء',
-                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                          color: AppColors.nearWhiteGreen,
+                  child: Column(
+                    children: [
+                      Text(
+                        'بالمعرفة تنهض الأمم',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
+                              color: AppColors.nearWhiteGreen,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                      10.heightSizedBox,
+                      Container(
+                        width: context.screenWidth * 0.8,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                    textAlign: TextAlign.center,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: context.screenWidth * 0.37,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/exam.png',
+                                    width: 50,
+                                  ),
+                                  10.widthSizedBox,
+                                  Column(
+                                    children: [
+                                      Text('اختبارات',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall),
+                                      Text(
+                                        '$exams',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!
+                                            .copyWith(
+                                              color: Colors.cyan,
+                                              fontSize: 22,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: 1,
+                              height: 70,
+                              color: AppColors.grey,
+                            ),
+                            Container(
+                              width: context.screenWidth * 0.37,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/cup.png',
+                                    width: 50,
+                                  ),
+                                  10.widthSizedBox,
+                                  Column(
+                                    children: [
+                                      Text('نقاط',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall),
+                                      Text('$points',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall!
+                                              .copyWith(
+                                                color: Colors.deepOrangeAccent,
+                                                fontSize: 22,
+                                              )),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -212,7 +317,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                   child: CustomButton(
                                     width: context.screenWidth,
                                     height: 60,
-                                    function: () {
+                                    function: () async{
+                                      if(isEnd){
+                                        await appPreferences.setExamPoints(points: degree);
+                                      }
                                       setState(() {
                                         if (!isEnd) {
                                           currentQuestion += 1;
@@ -225,6 +333,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                           }
                                         } else {
                                           showResult = true;
+                                          points += degree;
+                                          exams +=1;
                                         }
                                       });
                                     },
@@ -236,57 +346,63 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                 ),
                             ],
                           )
-                        : Center(
-                            child: Column(
-                              children: [
-                                40.heightSizedBox,
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    buildItem(context,
-                                        title: 'كل الأسئلة',
-                                        myNum: '${questions.length}',
-                                        color: AppColors.nearBlack),
-                                    buildItem(context,
-                                        title: 'درجتك',
-                                        myNum: '${degree}',
-                                        color: AppColors.info),
-                                  ],
-                                ),
-                                30.heightSizedBox,
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    buildItem(context,
-                                        title: 'إجابات صحيحة',
-                                        myNum: '${degree}',
-                                        color: AppColors.success),
-                                    buildItem(context,
-                                        title: 'إجابات خاطئة',
-                                        myNum: '${questions.length - degree}',
-                                        color: AppColors.failure),
-                                  ],
-                                ),
-                                30.heightSizedBox,
-                                CustomButton(
-                                  function: () {
-                                    pushAndRemoveRoute(
-                                        context, Routes.questions);
-                                  },
-                                  title: 'تجربة مرة أخري',
-                                  startColor: AppColors.info,
-                                  endColor: AppColors.info,
-                                  textColor: AppColors.white,
-                                ),
-                              ],
-                            ),
-                          ),
+                        : resultWidget(context),
                   ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget resultWidget(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Lottie.asset('assets/json/fire.json',fit: BoxFit.cover),
+        ),
+        Center(
+          child: Column(
+            children: [
+              40.heightSizedBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  buildItem(context,
+                      title: 'كل الأسئلة',
+                      myNum: '${questions.length}',
+                      color: AppColors.nearBlack),
+                  buildItem(context,
+                      title: 'درجتك', myNum: '${degree}', color: AppColors.info),
+                ],
+              ),
+              30.heightSizedBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  buildItem(context,
+                      title: 'إجابات صحيحة',
+                      myNum: '${degree}',
+                      color: AppColors.success),
+                  buildItem(context,
+                      title: 'إجابات خاطئة',
+                      myNum: '${questions.length - degree}',
+                      color: AppColors.failure),
+                ],
+              ),
+              30.heightSizedBox,
+              CustomButton(
+                function: () {
+                  pushAndRemoveRoute(context, Routes.questions);
+                },
+                title: 'تجربة مرة أخري',
+                startColor: AppColors.info,
+                endColor: AppColors.info,
+                textColor: AppColors.white,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 

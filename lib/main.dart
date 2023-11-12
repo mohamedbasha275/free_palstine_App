@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
               title: AppConstants.appName,
               debugShowCheckedModeBanner: false,
               theme: state.themeMode == MyThemeMode.light ? lightTheme : darkTheme,
-              home: const OnBoardingScreen(),
+              home: startWidget,
               onGenerateRoute: RouteGenerator.getRoute,
             );
           } else {

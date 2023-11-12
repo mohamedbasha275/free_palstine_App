@@ -7,6 +7,7 @@ const String darkMode = "lightMode";
 //
 const String filterMode = "filterMode";
 const String userNameKey = "userNameKey";
+const String examPoints = "examPoints";
 
 class AppPreferences {
   final SharedPreferences _sharedPreferences;
@@ -92,6 +93,28 @@ class AppPreferences {
       return filter;
     } else {
       return 'poems';
+    }
+  }
+
+  // setExamPoints
+  Future<void> setExamPoints({required int points}) async {
+    List<String>? degree = _sharedPreferences.getStringList(examPoints);
+    int exams = 0;
+    int allPoints = 0;
+    if (degree != null) {
+      exams = int.parse(degree[0]);
+      allPoints = int.parse(degree[0]);
+    }
+    _sharedPreferences.setStringList(examPoints, ['${exams+1}', '${allPoints + points}']);
+  }
+
+  // getExamPoints
+  Future<List<int>> getExamPoints() async {
+    List<String>? degree = _sharedPreferences.getStringList(examPoints);
+    if (degree != null) {
+      return [int.parse(degree[0]),int.parse(degree[1])];
+    } else {
+      return [0,0];
     }
   }
 }

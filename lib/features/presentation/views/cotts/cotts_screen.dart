@@ -131,12 +131,8 @@ class _CottsScreenState extends State<CottsScreen> {
                       SingleChildScrollView(
                         child: Column(
                           children: [
-                            Image.asset('assets/images/cott1.jpeg'),
-                            Image.asset('assets/images/cott2.jpeg'),
-                            Image.asset('assets/images/cott3.jpeg'),
-                            Image.asset('assets/images/cott4.jpeg'),
-                            Image.asset('assets/images/cott5.jpeg'),
-                            Image.asset('assets/images/cott6.jpeg'),
+                            for(int i=1;i<=16;i++)
+                            Image.asset('assets/images/cott$i.jpeg'),
                           ],
                         ),
                       ),
