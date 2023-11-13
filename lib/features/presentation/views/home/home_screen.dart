@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Image.asset(image),
+              child: Image.asset(image,width: 110,),
             ),
             // 10.heightSizedBox,
             Padding(

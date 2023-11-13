@@ -47,13 +47,38 @@ List<QuestionModel> questionsList = [
     ],
   ),
   QuestionModel(
-    title: '1when start3 palestine ?',
+    title: 'قامت عملية يوم ٧ أكتوبر ٢٠٢٣ ضد العدو وأربكت صفوفه ما إسم هذه العملية ؟',
     answers: [
-      AnswerModel(content: '1944', isTrue: false),
-      AnswerModel( content: '1954', isTrue: true),
-      AnswerModel(content: '1974', isTrue: false),
+      AnswerModel(content: 'جنود فلسطين', isTrue: false),
+      AnswerModel( content: 'طوفان الأقصي', isTrue: true),
+      AnswerModel(content: 'أحرار غزة', isTrue: false),
     ],
   ),
+  QuestionModel(
+    title: 'قامت عملية يوم ٧ أكتوبر ٢٠٢٣ ضد العدو وأربكت صفوفه ما إسم هذه العملية ؟',
+    answers: [
+      AnswerModel(content: 'جنود فلسطين', isTrue: false),
+      AnswerModel( content: 'طوفان الأقصي', isTrue: true),
+      AnswerModel(content: 'أحرار غزة', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'قامت عملية يوم ٧ أكتوبر ٢٠٢٣ ضد العدو وأربكت صفوفه ما إسم هذه العملية ؟',
+    answers: [
+      AnswerModel(content: 'جنود فلسطين', isTrue: false),
+      AnswerModel( content: 'طوفان الأقصي', isTrue: true),
+      AnswerModel(content: 'أحرار غزة', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'قامت عملية يوم ٧ أكتوبر ٢٠٢٣ ضد العدو وأربكت صفوفه ما إسم هذه العملية ؟',
+    answers: [
+      AnswerModel(content: 'جنود فلسطين', isTrue: false),
+      AnswerModel( content: 'طوفان الأقصي', isTrue: true),
+      AnswerModel(content: 'أحرار غزة', isTrue: false),
+    ],
+  ),
+
   QuestionModel(
     title: '3when start palestine ?',
     answers: [

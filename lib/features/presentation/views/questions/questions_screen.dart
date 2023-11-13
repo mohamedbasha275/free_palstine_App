@@ -258,7 +258,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                               Text(
                                 questions[currentQuestion].title,
                                 style:
-                                    Theme.of(context).textTheme.headlineMedium,
+                                    Theme.of(context).textTheme.headlineSmall,
                               ),
                               SizedBox(height: 20),
                               ...questions[currentQuestion]
@@ -372,7 +372,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       myNum: '${questions.length}',
                       color: AppColors.nearBlack),
                   buildItem(context,
-                      title: 'درجتك', myNum: '${degree}', color: AppColors.info),
+                      title: 'نقاط مضافة', myNum: '+${degree}', color: AppColors.info),
                 ],
               ),
               30.heightSizedBox,
