@@ -19,7 +19,7 @@ class CitiesScreen extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topRight,
-              height: 300,
+              height: context.screenHeight *0.35,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/cityback.png'),
@@ -41,7 +41,7 @@ class CitiesScreen extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(top: 100),
+                      margin: EdgeInsets.only(top:  context.screenHeight *0.12),
                       decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.8),
                       ),
@@ -60,7 +60,7 @@ class CitiesScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: context.screenHeight - 275,
+              height: context.screenHeight *0.66,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -69,7 +69,7 @@ class CitiesScreen extends StatelessWidget {
                 ),
               ),
               padding: EdgeInsets.only(top: 16),
-              margin: EdgeInsets.only(top: 250),
+              margin: EdgeInsets.only(top: context.screenHeight *0.31),
               child: SingleChildScrollView(
                 child: GridView.builder(
                   gridDelegate:

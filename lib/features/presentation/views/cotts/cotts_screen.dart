@@ -55,7 +55,7 @@ class _CottsScreenState extends State<CottsScreen> {
         children: [
           Container(
             alignment: Alignment.topRight,
-            height: 250,
+            height: context.screenHeight *0.25,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/cotts.png'),
@@ -82,7 +82,7 @@ class _CottsScreenState extends State<CottsScreen> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 270),
+            margin: EdgeInsets.only(top: context.screenHeight *0.26),
             padding: const EdgeInsets.all(8.0),
             decoration: const BoxDecoration(
               color: Colors.white,
@@ -152,7 +152,7 @@ class _CottsScreenState extends State<CottsScreen> {
                                 ),
                               ),
                             ),
-                            GridView.builder(
+                            filteredCotts.length > 0 ? GridView.builder(
                               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                 childAspectRatio: 2,
                                 crossAxisSpacing: 10,
@@ -182,6 +182,15 @@ class _CottsScreenState extends State<CottsScreen> {
                                   ),
                                 );
                               },
+                            ) : Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('لاتوجد نتائج بحث'),
+                                  Icon(Icons.no_stroller_sharp),
+                                ],
+                              ),
                             ),
                           ],
                         ),

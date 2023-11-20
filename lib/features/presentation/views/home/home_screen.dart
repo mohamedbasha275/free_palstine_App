@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topRight,
-              height: 350,
+              height: context.screenHeight *0.4,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/back.jpeg'),
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               child: Center(
                 child: Container(
                   padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top: 120),
+                  margin: EdgeInsets.only(top: context.screenHeight *0.16),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.8),
                   ),
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: context.screenHeight - 325,
+              height: context.screenHeight * 0.6,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               padding: EdgeInsets.only(top: 16),
-              margin: EdgeInsets.only(top: 300),
+              margin: EdgeInsets.only(top: context.screenHeight *0.35),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                         buildGestureDetector(context,
                             image: 'assets/images/history.png',
                             title: 'تاريخ فلسطين',
-                            route: ''),
+                            route: Routes.cities),
                         buildGestureDetector(context,
                             image: 'assets/images/palestine.png',
                             title: 'مدن فلسطين',
@@ -82,6 +82,7 @@ class HomeScreen extends StatelessWidget {
                             route: Routes.questions),
                       ],
                     ),
+                    20.heightSizedBox,
                   ],
                 ),
               ),
@@ -121,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                     .headlineSmall!
                     .copyWith(fontSize: FontSize.s20),
               ),
-            ),
+            )
           ],
         ),
       ),

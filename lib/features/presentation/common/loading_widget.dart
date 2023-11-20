@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/resources/app_fonts.dart';
 import 'package:free_palestine/core/resources/app_strings.dart';
@@ -25,11 +26,16 @@ class LoadingWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(loaderColor ?? Theme.of(context).primaryColor)),
-          const SizedBox(height: AppSize.s10),
+          //CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(loaderColor ?? Theme.of(context).primaryColor)),
+          SpinKitFoldingCube(
+            color: loaderColor ?? Color.fromRGBO(65, 128, 64, 1),
+            size: 50.0,
+            duration: const Duration(milliseconds: 800),
+          ),
+          const SizedBox(height: AppSize.s15),
           Text(
             loadingMessage,
-            style: TextStyle(fontSize: FontSize.s16, color: textColor ?? Theme.of(context).textTheme.titleSmall!.color),
+            style: TextStyle(fontSize: FontSize.s22, color: textColor ?? Color.fromRGBO(65, 128, 64, 1)),
           ),
         ],
       ),

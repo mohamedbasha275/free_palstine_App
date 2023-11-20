@@ -94,7 +94,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         children: [
           Container(
             alignment: Alignment.topRight,
-            height: 250,
+            height: context.screenHeight *0.32,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/questions.png'),
@@ -134,7 +134,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       10.heightSizedBox,
                       Container(
                         width: context.screenWidth * 0.8,
-                        padding: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(6),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -151,7 +151,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                 children: [
                                   Image.asset(
                                     'assets/images/exam.png',
-                                    width: 50,
+                                    width: 40,
                                   ),
                                   10.widthSizedBox,
                                   Column(
@@ -172,6 +172,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       ),
                                     ],
                                   ),
+                                  5.widthSizedBox,
                                 ],
                               ),
                             ),
@@ -190,7 +191,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                 children: [
                                   Image.asset(
                                     'assets/images/cup.png',
-                                    width: 50,
+                                    width: 40,
                                   ),
                                   10.widthSizedBox,
                                   Column(
@@ -228,124 +229,127 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ? const LoadingWidget()
                 : Container(
                     child: (!showResult)
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'السؤال: ${(currentQuestion + 1)} / ${questions.length}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelSmall!
-                                      .copyWith(
-                                        fontSize: FontSize.s18,
-                                      ),
-                                ),
-                              ),
-                              LinearPercentIndicator(
-                                lineHeight: 20.0,
-                                percent:
-                                    (currentQuestion + 1) / questions.length,
-                                backgroundColor: Colors.grey.withOpacity(0.5),
-                                progressColor: Color.fromRGBO(65, 128, 64, 1),
-                                isRTL: true,
-                                animateFromLastPercent: true,
-                                animation: true,
-                                barRadius: const Radius.circular(20),
-                              ),
-                              SizedBox(height: 15),
-                              Text(
-                                questions[currentQuestion].title,
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
-                              ),
-                              SizedBox(height: 20),
-                              ...questions[currentQuestion]
-                                  .answers
-                                  .asMap()
-                                  .entries
-                                  .map(
-                                (entry) {
-                                  int idx = entry.key;
-                                  var answer = entry.value;
-                                  return AnswerTile(
-                                    index: idx,
-                                    answer: answer.content,
-                                    borderColor:
-                                        _getBorderColor(answer.isTrue, idx),
-                                    icon: _getIcon(answer.isTrue, idx),
-                                    isSelected: idx == selectedAnswerIndex,
-                                    onTap: () {
-                                      if (!checkNow) {
-                                        setState(() {
-                                          selectedAnswerIndex = idx;
-                                        });
-                                      }
-                                    },
-                                  );
-                                },
-                              ).toList(),
-                              10.heightSizedBox,
-                              if (showCheck)
-                                Center(
-                                  child: CustomButton(
-                                    height: 60,
-                                    width: context.screenWidth,
-                                    function: () {
-                                      if (selectedAnswerIndex > -1) {
-                                        setState(() {
-                                          checkNow = true;
-                                          showCheck = !showCheck;
-                                          if (questions[currentQuestion]
-                                                  .answers[selectedAnswerIndex]
-                                                  .isTrue ==
-                                              true) {
-                                            degree += 1;
-                                          }
-                                        });
-                                      }
-                                    },
-                                    title: 'تحقق',
-                                    startColor: Color.fromRGBO(65, 128, 64, 1),
-                                    endColor: Color.fromRGBO(65, 128, 64, 1),
-                                    textColor: AppColors.white,
+                        ? SingleChildScrollView(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(
+                                    'السؤال: ${(currentQuestion + 1)} / ${questions.length}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelSmall!
+                                        .copyWith(
+                                          fontSize: FontSize.s18,
+                                        ),
                                   ),
                                 ),
-                              if (!showCheck)
-                                Center(
-                                  child: CustomButton(
-                                    width: context.screenWidth,
-                                    height: 60,
-                                    function: () async{
-                                      if(isEnd){
-                                        await appPreferences.setExamPoints(points: degree);
-                                      }
-                                      setState(() {
-                                        if (!isEnd) {
-                                          currentQuestion += 1;
-                                          checkNow = false;
-                                          selectedAnswerIndex = -1;
-                                          showCheck = !showCheck;
-                                          if ((currentQuestion + 1) ==
-                                              questions.length) {
-                                            isEnd = true;
-                                          }
-                                        } else {
-                                          showResult = true;
-                                          points += degree;
-                                          exams +=1;
+                                LinearPercentIndicator(
+                                  lineHeight: 20.0,
+                                  percent:
+                                      (currentQuestion + 1) / questions.length,
+                                  backgroundColor: Colors.grey.withOpacity(0.5),
+                                  progressColor: Color.fromRGBO(65, 128, 64, 1),
+                                  isRTL: true,
+                                  animateFromLastPercent: true,
+                                  animation: true,
+                                  barRadius: const Radius.circular(20),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  questions[currentQuestion].title,
+                                  style:
+                                      Theme.of(context).textTheme.headlineSmall,
+                                ),
+                                SizedBox(height: 20),
+                                ...questions[currentQuestion]
+                                    .answers
+                                    .asMap()
+                                    .entries
+                                    .map(
+                                  (entry) {
+                                    int idx = entry.key;
+                                    var answer = entry.value;
+                                    return AnswerTile(
+                                      index: idx,
+                                      answer: answer.content,
+                                      borderColor:
+                                          _getBorderColor(answer.isTrue, idx),
+                                      icon: _getIcon(answer.isTrue, idx),
+                                      isSelected: idx == selectedAnswerIndex,
+                                      onTap: () {
+                                        if (!checkNow) {
+                                          setState(() {
+                                            selectedAnswerIndex = idx;
+                                          });
                                         }
-                                      });
-                                    },
-                                    title: isEnd ? 'عرض الدرجة' : 'التالي',
-                                    startColor: Color.fromRGBO(65, 128, 64, 1),
-                                    endColor: Color.fromRGBO(65, 128, 64, 1),
-                                    textColor: AppColors.white,
+                                      },
+                                    );
+                                  },
+                                ).toList(),
+                                10.heightSizedBox,
+                                if (showCheck)
+                                  Center(
+                                    child: CustomButton(
+                                      height: 60,
+                                      width: context.screenWidth,
+                                      function: () {
+                                        if (selectedAnswerIndex > -1) {
+                                          setState(() {
+                                            checkNow = true;
+                                            showCheck = !showCheck;
+                                            if (questions[currentQuestion]
+                                                    .answers[selectedAnswerIndex]
+                                                    .isTrue ==
+                                                true) {
+                                              degree += 1;
+                                            }
+                                          });
+                                        }
+                                      },
+                                      title: 'تحقق',
+                                      startColor: Color.fromRGBO(65, 128, 64, 1),
+                                      endColor: Color.fromRGBO(65, 128, 64, 1),
+                                      textColor: AppColors.white,
+                                    ),
                                   ),
-                                ),
-                            ],
-                          )
+                                if (!showCheck)
+                                  Center(
+                                    child: CustomButton(
+                                      width: context.screenWidth,
+                                      height: 60,
+                                      function: () async{
+                                        if(isEnd){
+                                          await appPreferences.setExamPoints(points: degree);
+                                        }
+                                        setState(() {
+                                          if (!isEnd) {
+                                            currentQuestion += 1;
+                                            checkNow = false;
+                                            selectedAnswerIndex = -1;
+                                            showCheck = !showCheck;
+                                            if ((currentQuestion + 1) ==
+                                                questions.length) {
+                                              isEnd = true;
+                                            }
+                                          } else {
+                                            showResult = true;
+                                            points += degree;
+                                            exams +=1;
+                                          }
+                                        });
+                                      },
+                                      title: isEnd ? 'عرض الدرجة' : 'التالي',
+                                      startColor: Color.fromRGBO(65, 128, 64, 1),
+                                      endColor: Color.fromRGBO(65, 128, 64, 1),
+                                      textColor: AppColors.white,
+                                    ),
+                                  ),
+                                10.heightSizedBox,
+                              ],
+                            ),
+                        )
                         : resultWidget(context),
                   ),
           ),
@@ -361,45 +365,46 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           child: Lottie.asset('assets/json/fire.json',fit: BoxFit.cover),
         ),
         Center(
-          child: Column(
-            children: [
-              40.heightSizedBox,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  buildItem(context,
-                      title: 'كل الأسئلة',
-                      myNum: '${questions.length}',
-                      color: AppColors.nearBlack),
-                  buildItem(context,
-                      title: 'نقاط مضافة', myNum: '+${degree}', color: AppColors.info),
-                ],
-              ),
-              30.heightSizedBox,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  buildItem(context,
-                      title: 'إجابات صحيحة',
-                      myNum: '${degree}',
-                      color: AppColors.success),
-                  buildItem(context,
-                      title: 'إجابات خاطئة',
-                      myNum: '${questions.length - degree}',
-                      color: AppColors.failure),
-                ],
-              ),
-              30.heightSizedBox,
-              CustomButton(
-                function: () {
-                  pushAndRemoveRoute(context, Routes.questions);
-                },
-                title: 'تجربة مرة أخري',
-                startColor: AppColors.info,
-                endColor: AppColors.info,
-                textColor: AppColors.white,
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    buildItem(context,
+                        title: 'كل الأسئلة',
+                        myNum: '${questions.length}',
+                        color: AppColors.nearBlack),
+                    buildItem(context,
+                        title: 'نقاط مضافة', myNum: '+${degree}', color: AppColors.info),
+                  ],
+                ),
+                30.heightSizedBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    buildItem(context,
+                        title: 'إجابات صحيحة',
+                        myNum: '${degree}',
+                        color: AppColors.success),
+                    buildItem(context,
+                        title: 'إجابات خاطئة',
+                        myNum: '${questions.length - degree}',
+                        color: AppColors.failure),
+                  ],
+                ),
+                30.heightSizedBox,
+                CustomButton(
+                  function: () {
+                    pushAndRemoveRoute(context, Routes.questions);
+                  },
+                  title: 'تجربة مرة أخري',
+                  startColor: AppColors.info,
+                  endColor: AppColors.info,
+                  textColor: AppColors.white,
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -465,7 +470,7 @@ class AnswerTile extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: context.screenWidth,
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(

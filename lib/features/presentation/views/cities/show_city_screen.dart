@@ -22,7 +22,7 @@ class ShowCityScreen extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topRight,
-              height: 300,
+              height: context.screenHeight * 0.35,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/cityback.png'),
@@ -55,7 +55,7 @@ class ShowCityScreen extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(top: 100),
+                      margin: EdgeInsets.only(top: context.screenHeight * 0.12),
                       decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.8),
                       ),
@@ -74,7 +74,7 @@ class ShowCityScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: context.screenHeight - 275,
+              height: context.screenHeight * 0.66,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -82,10 +82,10 @@ class ShowCityScreen extends StatelessWidget {
                   topLeft: Radius.circular(30),
                 ),
               ),
-              margin: EdgeInsets.only(top: 250),
+              margin: EdgeInsets.only(top: context.screenHeight * 0.31),
               padding: EdgeInsets.all(16),
               child: SizedBox(
-                height: context.screenHeight - 275,
+                height: context.screenHeight * 0.66,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -103,12 +103,13 @@ class ShowCityScreen extends StatelessWidget {
                                     .textTheme
                                     .headlineSmall!
                                     .copyWith(
-                                  fontSize: FontSize.s22,
-                                  color: Colors.brown,
-                                ),
+                                      fontSize: FontSize.s22,
+                                      color: Colors.brown,
+                                    ),
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   IconButton(
                                     onPressed: () async {
@@ -137,15 +138,19 @@ class ShowCityScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Expanded(child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          10.heightSizedBox,
-                          Text(city.info, style: Theme.of(context).textTheme.headlineSmall),
-                          20.heightSizedBox,
-                        ],
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            10.heightSizedBox,
+                            Text(city.info,
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall),
+                            20.heightSizedBox,
+                          ],
+                        ),
                       ),
-                    ),),
+                    ),
                   ],
                 ),
               ),
@@ -155,13 +160,16 @@ class ShowCityScreen extends StatelessWidget {
       ),
     );
   }
+
   Future<void> _launchInWebView(url) async {
     if (!await launchUrl(Uri.parse(url), mode: LaunchMode.inAppWebView)) {
       throw Exception('Could not launch $url');
     }
   }
+
   Future<void> _launchMap(url) async {
-    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
     }
   }
