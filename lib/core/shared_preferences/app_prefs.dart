@@ -103,8 +103,11 @@ class AppPreferences {
     int allPoints = 0;
     if (degree != null) {
       exams = int.parse(degree[0]);
-      allPoints = int.parse(degree[0]);
+      allPoints = int.parse(degree[1]);
     }
+    print('Sh:allPoints:$allPoints');
+    print('Sh:points:$points');
+    print('Sh:examPoints:$degree');
     _sharedPreferences.setStringList(examPoints, ['${exams+1}', '${allPoints+points}']);
   }
 

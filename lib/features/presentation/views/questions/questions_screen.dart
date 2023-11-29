@@ -29,7 +29,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   int selectedAnswerIndex = -1;
   bool checkNow = false;
   bool showCheck = true;
-  int degree = 0;
+  int degrees = 0;
 
   bool isEnd = false;
   bool showResult = false;
@@ -303,7 +303,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                                     .answers[selectedAnswerIndex]
                                                     .isTrue ==
                                                 true) {
-                                              degree += 1;
+                                              degrees += 1;
                                             }
                                           });
                                         }
@@ -321,7 +321,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       height: 60,
                                       function: () async{
                                         if(isEnd){
-                                          await appPreferences.setExamPoints(points: degree);
+                                          print('DEGREE:$degrees');
+                                          await appPreferences.setExamPoints(points: degrees);
                                         }
                                         setState(() {
                                           if (!isEnd) {
@@ -335,7 +336,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                             }
                                           } else {
                                             showResult = true;
-                                            points += degree;
+                                            points += degrees;
                                             exams +=1;
                                           }
                                         });
@@ -376,7 +377,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         myNum: '${questions.length}',
                         color: AppColors.nearBlack),
                     buildItem(context,
-                        title: 'نقاط مضافة', myNum: '+${degree}', color: AppColors.info),
+                        title: 'نقاط مضافة', myNum: '+$degrees', color: AppColors.info),
                   ],
                 ),
                 30.heightSizedBox,
@@ -385,11 +386,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   children: [
                     buildItem(context,
                         title: 'إجابات صحيحة',
-                        myNum: '${degree}',
+                        myNum: '$degrees',
                         color: AppColors.success),
                     buildItem(context,
                         title: 'إجابات خاطئة',
-                        myNum: '${questions.length - degree}',
+                        myNum: '${questions.length - degrees}',
                         color: AppColors.failure),
                   ],
                 ),

@@ -33,11 +33,11 @@ ThemeData lightTheme = ThemeData(
   appBarTheme: const AppBarTheme(
     elevation: AppSize.s1,
     shadowColor: Colors.greenAccent,
-    backgroundColor: Color.fromRGBO(220, 248, 255, 1),
+    backgroundColor:  Color.fromRGBO(255, 255, 255, 1),
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Color.fromRGBO(220, 248, 255, 1),
+      statusBarColor:  Color.fromRGBO(255, 255, 255, 1),
       // top bg color
-      systemNavigationBarColor: Color.fromRGBO(220, 248, 255, 1),
+      systemNavigationBarColor:  Color.fromRGBO(255, 255, 255, 1),
       // bottom bg color
       statusBarBrightness: Brightness.dark,
       // top text color

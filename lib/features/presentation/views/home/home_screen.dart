@@ -61,7 +61,9 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        pushRoute(context, Routes.questions);
+                      },
                       child: Text(
                         'أختبار الآن',
                         style: TextStyle(
