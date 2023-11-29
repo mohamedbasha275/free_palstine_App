@@ -1,3 +1,5 @@
+import 'package:free_palestine/features/business_logic/news/news_cubit.dart';
+import 'package:free_palestine/features/data/repositories/news_repo.dart';
 import 'package:free_palestine/features/presentation/views/cities/cities_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,6 +49,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AuthCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider<ThemeCubit>(
             create: (context) => ThemeCubit()..isDarkMode()),
+        BlocProvider<NewsCubit>(
+            create: (context) =>
+                NewsCubit(getIt.get<NewsRepoImpl>())..fetchNews()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
@@ -54,7 +59,8 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               title: AppConstants.appName,
               debugShowCheckedModeBanner: false,
-              theme: state.themeMode == MyThemeMode.light ? lightTheme : darkTheme,
+              theme:
+                  state.themeMode == MyThemeMode.light ? lightTheme : darkTheme,
               home: startWidget,
               onGenerateRoute: RouteGenerator.getRoute,
             );

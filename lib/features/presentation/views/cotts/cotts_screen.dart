@@ -55,7 +55,7 @@ class _CottsScreenState extends State<CottsScreen> {
         children: [
           Container(
             alignment: Alignment.topRight,
-            height: context.screenHeight *0.25,
+            height: context.screenHeight *0.2,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/cotts.png'),
@@ -82,7 +82,7 @@ class _CottsScreenState extends State<CottsScreen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: context.screenHeight *0.26),
+            margin: EdgeInsets.only(top: context.screenHeight *0.2),
             padding: const EdgeInsets.all(8.0),
             decoration: const BoxDecoration(
               color: Colors.white,

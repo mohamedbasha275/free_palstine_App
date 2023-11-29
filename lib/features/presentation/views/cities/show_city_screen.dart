@@ -25,7 +25,8 @@ class ShowCityScreen extends StatelessWidget {
               height: context.screenHeight * 0.35,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/cityback.png'),
+                 // image: AssetImage('assets/images/cityback.png'),
+                  image: AssetImage(city.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,22 +54,22 @@ class ShowCityScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(top: context.screenHeight * 0.12),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                      child: Text(
-                        city.name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium!
-                            .copyWith(
-                              color: AppColors.white,
-                            ),
-                      ),
-                    ),
+                    // Container(
+                    //   padding: EdgeInsets.all(10),
+                    //   margin: EdgeInsets.only(top: context.screenHeight * 0.12),
+                    //   decoration: BoxDecoration(
+                    //     color: Colors.black.withOpacity(0.8),
+                    //   ),
+                    //   child: Text(
+                    //     city.name,
+                    //     style: Theme.of(context)
+                    //         .textTheme
+                    //         .headlineMedium!
+                    //         .copyWith(
+                    //           color: AppColors.white,
+                    //         ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

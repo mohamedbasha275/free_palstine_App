@@ -6,7 +6,8 @@ import 'package:free_palestine/core/shared_preferences/app_prefs.dart';
 const String accept = '*/*';
 
 class ApiService {
-  final String _baseUrl = 'https://poems.karnabeet.com/api/';
+  //final String _baseUrl = 'https://poems.karnabeet.com/api/';
+  final String _baseUrl = 'https://newsapi.org/v2/';
   final Dio _dio;
   final Map<String, String> _headers = {
     'Accept': accept,
@@ -29,7 +30,7 @@ class ApiService {
   }) async {
     _headers['Authorization'] = await _getAuthorizationToken(isToken: isToken);
     var response;
-    final url = '$_baseUrl${endpoint.value}${parameter.isNotEmpty ? '/$parameter' : ''}';
+    final url = '$_baseUrl${endpoint.value}${parameter.isNotEmpty ? '?$parameter' : ''}';
 
     switch (method) {
       case 'GET':

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:free_palestine/features/data/repositories/news_repo.dart';
 import 'package:get_it/get_it.dart';
 import 'package:free_palestine/core/dio/api_service.dart';
 import 'package:free_palestine/core/shared_preferences/app_prefs.dart';
 import 'package:free_palestine/features/data/repositories/auth_repo.dart';
 import 'package:free_palestine/features/data/repositories/filter_repo.dart';
-import 'package:free_palestine/features/data/repositories/poems_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -42,7 +42,7 @@ void _registerRepositories() {
   final apiService = getIt.get<ApiService>();
 
   getIt
-    ..registerSingleton<PoemsRepoImpl>(PoemsRepoImpl(apiService))
+    ..registerSingleton<NewsRepoImpl>(NewsRepoImpl(apiService))
     ..registerSingleton<FilterRepoImpl>(FilterRepoImpl(apiService))
     ..registerSingleton<AuthRepoImpl>(AuthRepoImpl(apiService));
 }

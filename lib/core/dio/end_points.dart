@@ -17,6 +17,7 @@ enum Endpoint {
   removePoemLines,
   resetPassword,
   poetPoems,
+  fetchNews,
 }
 
 extension EndpointExtension on Endpoint {
@@ -58,6 +59,8 @@ extension EndpointExtension on Endpoint {
         return 'send-email';
       case Endpoint.poetPoems:
         return 'poems-belong-poet';
+      case Endpoint.fetchNews:
+        return 'everything';
     }
   }
 }
