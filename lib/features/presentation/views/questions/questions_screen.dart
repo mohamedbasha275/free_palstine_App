@@ -233,8 +233,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                10.heightSizedBox,
                                 Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     'السؤال: ${(currentQuestion + 1)} / ${questions.length}',
                                     style: Theme.of(context)

@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 class GradientBackground extends StatelessWidget {
   final Widget child;
   final String title;
-  const GradientBackground({super.key, required this.child,this.title = ''});
+  final bool back;
+  const GradientBackground({super.key, required this.child,this.title = '',this.back = false});
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -21,11 +22,15 @@ class GradientBackground extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildBackButton(context),
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                    fontSize: FontSize.s27,
+                if(back)_buildBackButton(context),
+                SizedBox(
+                  width: 200,
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                      fontSize: FontSize.s20,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 _buildHomeButton(context),
@@ -63,10 +68,7 @@ Widget _buildBackButton(BuildContext context) {
     onPressed: () {
        Navigator.of(context).pop();
     },
-    icon: Icon(
-      Icons.arrow_back_ios,
-      color: Theme.of(context).secondaryHeaderColor,
-    ),
+    icon: Image.asset('assets/images/back.png'),
   );
 }
 Widget _buildHomeButton(BuildContext context) {
@@ -74,10 +76,6 @@ Widget _buildHomeButton(BuildContext context) {
     onPressed: () {
       pushRoute(context, Routes.home);
     },
-    icon: Icon(
-      Icons.home,
-      color: Theme.of(context).secondaryHeaderColor,
-      size: 32,
-    ),
+    icon: Image.asset('assets/images/home.png'),
   );
 }

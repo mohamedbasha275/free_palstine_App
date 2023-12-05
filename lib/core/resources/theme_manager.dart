@@ -31,8 +31,8 @@ ThemeData lightTheme = ThemeData(
   unselectedWidgetColor: AppColors.nearWhiteGreen,
   // app bar theme
   appBarTheme: const AppBarTheme(
-    elevation: AppSize.s1,
-    shadowColor: Colors.greenAccent,
+    elevation: 0.5,
+    shadowColor: Colors.grey,
     backgroundColor:  Color.fromRGBO(255, 255, 255, 1),
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor:  Color.fromRGBO(255, 255, 255, 1),

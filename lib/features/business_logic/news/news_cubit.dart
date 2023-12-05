@@ -23,4 +23,17 @@ class NewsCubit extends Cubit<NewsState> {
       }
     });
   }
+  Future<void> fetchAllNews() async {
+    emit(NewsLoading());
+    var result = await newsRepo.fetchAllNews();
+    result.fold((failure) {
+      emit(NewsFailure(failure.errorMessage));
+    }, (news) async {
+      if (news.isEmpty) {
+        emit(NewsEmpty());
+      } else {
+        emit(NewsSuccess(news));
+      }
+    });
+  }
 }

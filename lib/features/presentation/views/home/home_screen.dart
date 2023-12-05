@@ -2,31 +2,20 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/helper_functions/route_navigation.dart';
-import 'package:free_palestine/core/resources/app_assets.dart';
 import 'package:free_palestine/core/resources/app_colors.dart';
-import 'package:free_palestine/core/resources/app_fonts.dart';
 import 'package:free_palestine/core/resources/app_routers.dart';
 import 'package:free_palestine/core/resources/app_strings.dart';
-import 'package:free_palestine/core/resources/values_manager.dart';
 import 'package:free_palestine/features/business_logic/news/news_cubit.dart';
 import 'package:free_palestine/features/data/local/cities_list.dart';
-import 'package:free_palestine/features/presentation/common/custom_button.dart';
 import 'package:free_palestine/features/presentation/common/empty_widget.dart';
 import 'package:free_palestine/features/presentation/common/gradient_background.dart';
 import 'package:flutter/material.dart';
-import 'package:free_palestine/features/presentation/common/loading_widget.dart';
-import 'package:free_palestine/features/presentation/common/warning_widget.dart';
-import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> slides = [
-      'assets/images/back.jpeg',
-      'assets/images/back.jpeg'
-    ];
     return GradientBackground(
       child: SingleChildScrollView(
         child: Padding(
@@ -34,66 +23,66 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               30.heightSizedBox,
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/exam.png',
-                          width: 60,
-                        ),
-                        10.widthSizedBox,
-                        Row(
-                          children: [
-                            Text(
-                              'أهلاً بعودتك ،',
-                              style:
-                                  TextStyle(fontSize: 22, color: Colors.grey),
-                            ),
-                            Icon(
-                              Icons.waving_hand_rounded,
-                              color: Colors.orange,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        pushRoute(context, Routes.questions);
-                      },
-                      child: Text(
-                        'أختبار الآن',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/reading.png',
+                        width: 60,
                       ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Color.fromRGBO(65, 128, 64, 1))),
-                    )
-                  ],
-                ),
+                      10.widthSizedBox,
+                      Row(
+                        children: [
+                          Text(
+                            'أهلاً بعودتك ،',
+                            style:
+                                TextStyle(fontSize: 22, color: Colors.grey),
+                          ),
+                          Icon(
+                            Icons.waving_hand_rounded,
+                            color: Colors.orange,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      pushRoute(context, Routes.questions);
+                    },
+                    child: Text(
+                      'أختبار الآن',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromRGBO(65, 128, 64, 1))),
+                  )
+                ],
               ),
               BlocBuilder<NewsCubit, NewsState>(
                 builder: (context, state) {
                   if (state is NewsLoading) {
                     return const CircularProgressIndicator();
                   } else if (state is NewsFailure) {
-                    return Column(
-                      children: [
-                        Text('يوجد خطأ في تحميل الأخبار'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('يرجي التأكد من الانترنت'),
-                            Icon(Icons.wifi_off),
-                          ],
-                        ),
-                      ],
+                    return Center(
+                      child: Column(
+                        children: [
+                          Text('يوجد خطأ في تحميل الأخبار'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('يرجي التأكد من الانترنت'),
+                              Icon(Icons.wifi_off),
+                            ],
+                          ),
+                        ],
+                      ),
                     );
                   } else if (state is NewsSuccess) {
                     return Column(
@@ -104,52 +93,52 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Text(
                               'أخر الأخبار',
-                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                pushRoute(context, Routes.news);
+                              },
                               child: Text(
                                 'عرض المزيد',
-                                style:
-                                TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w600),
                               ),
                             ),
                           ],
                         ),
                         10.heightSizedBox,
-                        Container(
+                        SizedBox(
                           width: context.screenWidth * 0.95,
                           child: CarouselSlider.builder(
                             itemCount: state.news.length,
                             itemBuilder: (ctx, index, realIdx) {
-                              return GestureDetector(
-                                onTap: (){
-                                  print(state.news[index].url);
-                                },
+                              return Container(
+                                alignment: Alignment.bottomRight,
+                                margin: const EdgeInsets.only(left: 10),
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: NetworkImage(state.news[index].image!),
+                                    fit: BoxFit.cover,
+
+                                  ),
+                                ),
                                 child: Container(
-                                  alignment: Alignment.bottomRight,
-                                  margin: EdgeInsets.only(left: 10),
-                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        image: NetworkImage(state.news[index].image),
-                                        fit: BoxFit.cover),
+                                    color: Colors.black.withOpacity(0.8),
                                   ),
-                                  child: Container(
-                                    padding: EdgeInsets.all(10),
-                                    margin: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.8),
-                                    ),
-                                    child: Text('${state.news[index].title}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium!
-                                            .copyWith(
-                                          color: AppColors.white,
-                                        )),
-                                  ),
+                                  child: Text(state.news[index].title!,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelMedium!
+                                          .copyWith(
+                                        color: AppColors.white,
+                                      )),
                                 ),
                               );
                             },
@@ -275,7 +264,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            pushRoute(context, Routes.history);
+                          },
                           child: Row(
                             children: [
                               Text(

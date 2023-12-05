@@ -1,10 +1,10 @@
 class NewsModel {
-  final String author;
-  final String title;
-  final String description;
-  final String url;
-  final String image;
-  final String publishedAt;
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? image;
+  final String? publishedAt;
 
   NewsModel({
     required this.author,

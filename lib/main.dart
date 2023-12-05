@@ -13,6 +13,7 @@ import 'package:free_palestine/features/business_logic/auth/auth_cubit.dart';
 import 'package:free_palestine/features/business_logic/theme/theme_cubit.dart';
 import 'package:free_palestine/features/data/repositories/auth_repo.dart';
 import 'package:free_palestine/features/presentation/views/home/home_screen.dart';
+import 'package:free_palestine/features/presentation/views/news/news_screen.dart';
 import 'package:free_palestine/features/presentation/views/on_boarding/on_boarding_screen.dart';
 
 void main() async {
