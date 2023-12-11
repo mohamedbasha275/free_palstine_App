@@ -176,8 +176,15 @@ class _CottsScreenState extends State<CottsScreen> {
                                         'assets/images/boycott.png',
                                         width: 30,
                                       ),
-                                      Text(filteredCotts[index].name,
-                                          style: Theme.of(context).textTheme.headlineSmall),
+                                      SizedBox(
+                                        width: context.screenWidth *0.2,
+                                        child: Text(filteredCotts[index].name,
+                                            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                              fontSize: 12
+                                            ),
+                                        textAlign: TextAlign.center,
+                                        maxLines: 2),
+                                      ),
                                     ],
                                   ),
                                 );

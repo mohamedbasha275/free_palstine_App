@@ -23,7 +23,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     BoardingModel(
       image: ImageAssets.onBoarding2,
       title: 'أختبر معلوماتك',
-      body: 'أختبر معلوماتك التاريخية والجغرافية والدينية عن فلسطين ف أكتر من ١٠٠٠ سؤال',
+      body: 'أختبر معلوماتك التاريخية والجغرافية والدينية عن فلسطين وزود نقاطك',
     ),
     BoardingModel(
       image: ImageAssets.onBoarding3,

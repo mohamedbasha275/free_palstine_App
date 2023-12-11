@@ -375,7 +375,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'أم الفحم', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هي المدينة التي تشتهر بصناعة الصابون النابلسي التقليدي؟',
     answers: [
@@ -384,7 +383,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'طبريا', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المناطق تقع في محافظة جنين؟',
     answers: [
@@ -393,7 +391,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الخضيرة', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تعتبر العاصمة الثقافية لفلسطين؟',
     answers: [
@@ -402,7 +399,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'إربد', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تقع شمال غرب الضفة الغربية؟',
     answers: [
@@ -411,7 +407,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'السويداء', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه البلدات الفلسطينية تعرف ببوابة النقب؟',
     answers: [
@@ -420,7 +415,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'موديعين', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المناطق تعتبر أعلى نقطة في القدس؟',
     answers: [
@@ -429,7 +423,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'جبل الطور', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه القرى تعتبر من أقدم مواقع التجمع البشري في فلسطين؟',
     answers: [
@@ -438,7 +431,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'صفد', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن الفلسطينية تعتبر مركزًا للتجارة والأعمال؟',
     answers: [
@@ -447,7 +439,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'طبريا', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تضم ميناءً قديمًا يعود تاريخه للعصر البرونزي؟',
     answers: [
@@ -464,7 +455,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'معان', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المناطق تعد من أكثر المناطق خصوبة في فلسطين؟',
     answers: [
@@ -473,7 +463,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'جبال الخليل', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه البلدات الفلسطينية تقع على سفوح جبال القدس؟',
     answers: [
@@ -482,7 +471,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'اللد', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المحافظات تقع في الشمال الشرقي من الضفة الغربية؟',
     answers: [
@@ -491,7 +479,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الخليل', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تعتبر مركزًا للتعليم والدراسات العليا في فلسطين؟',
     answers: [
@@ -500,7 +487,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'أريحا', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن الفلسطينية تشتهر بالتمور الفاخرة؟',
     answers: [
@@ -509,7 +495,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'رام الله', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه القرى تشتهر بالكروم وزراعة العنب؟',
     answers: [
@@ -518,7 +503,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'طولكرم', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه البلدات الفلسطينية تقع في القسم الجنوبي من الجليل؟',
     answers: [
@@ -527,16 +511,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الرملة', isTrue: false),
     ],
   ),
-
   QuestionModel(
-    title: 'أي من هذه المدن يمر بها الشارع الرئيسي الذي يربط الشمال بالجنوب في الضفة الغربية؟',
+    title:
+        'أي من هذه المدن يمر بها الشارع الرئيسي الذي يربط الشمال بالجنوب في الضفة الغربية؟',
     answers: [
       AnswerModel(content: 'نابلس', isTrue: true),
       AnswerModel(content: 'القدس', isTrue: false),
       AnswerModel(content: 'بيت لحم', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تعتبر مركزًا للنشاط الثقافي والفني في فلسطين؟',
     answers: [
@@ -553,16 +536,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'أريحا', isTrue: false),
     ],
   ),
-
   QuestionModel(
-    title: 'أي من هذه المدن تعتبر مهد الحضارات القديمة وتحتوي على أطلال رومانية؟',
+    title:
+        'أي من هذه المدن تعتبر مهد الحضارات القديمة وتحتوي على أطلال رومانية؟',
     answers: [
       AnswerModel(content: 'نابلس', isTrue: true),
       AnswerModel(content: 'حيفا', isTrue: false),
       AnswerModel(content: 'الناصرة', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المحافظات تعتبر المركز الرئيسي لصناعة الفخار في فلسطين؟',
     answers: [
@@ -571,7 +553,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'القدس', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المناطق يعتبر من أخصب الأراضي الزراعية في فلسطين؟',
     answers: [
@@ -580,7 +561,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'البحر الميت', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن الفلسطينية تقع على سهول ساحلية؟',
     answers: [
@@ -589,7 +569,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'سلفيت', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المحافظات تشتهر بكروم العنب وزراعة الزيتون؟',
     answers: [
@@ -598,7 +577,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'أريحا', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تقع على تلة عالية وتطل على الساحل الفلسطيني؟',
     answers: [
@@ -607,7 +585,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'بئر السبع', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المناطق تعتبر قلب القدس التاريخي والديني؟',
     answers: [
@@ -616,7 +593,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'بيت لحم', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المدن تعتبر مركزًا لصناعة الأحذية والجلود في فلسطين؟',
     answers: [
@@ -625,7 +601,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'عكا', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي من هذه المحافظات تحتضن جزءًا من سهل مرج ابن عامر؟',
     answers: [
@@ -633,7 +608,8 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'غزة', isTrue: false),
       AnswerModel(content: 'القدس', isTrue: false),
     ],
-  ),QuestionModel(
+  ),
+  QuestionModel(
     title: 'ما هي الألوان الموجودة في علم فلسطين؟',
     answers: [
       AnswerModel(content: 'أسود، أبيض، أخضر وأحمر', isTrue: true),
@@ -641,7 +617,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'أخضر، أزرق، أحمر وأبيض', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'كم عدد الأشرطة الموجودة على علم فلسطين؟',
     answers: [
@@ -650,7 +625,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: '4', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي شكل هندسي موجود على علم فلسطين؟',
     answers: [
@@ -659,7 +633,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'دائرة', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'في أي جهة من علم فلسطين يقع المثلث؟',
     answers: [
@@ -668,7 +641,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الجهة اليسرى', isTrue: true),
     ],
   ),
-
   QuestionModel(
     title: 'ماذا يرمز اللون الأسود في علم فلسطين؟',
     answers: [
@@ -677,7 +649,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الخصوبة', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي لون يمثل العصر الأموي في علم فلسطين؟',
     answers: [
@@ -686,7 +657,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الأبيض', isTrue: true),
     ],
   ),
-
   QuestionModel(
     title: 'أي العصور التالية يرمز لها اللون الأخضر في علم فلسطين؟',
     answers: [
@@ -695,7 +665,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'العصر الحديث', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ماذا يمثل اللون الأحمر في علم فلسطين؟',
     answers: [
@@ -704,16 +673,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'السلام', isTrue: false),
     ],
   ),
-
   QuestionModel(
-    title: 'ما هو الترتيب الصحيح لألوان الأشرطة في علم فلسطين من الأعلى إلى الأسفل؟',
+    title:
+        'ما هو الترتيب الصحيح لألوان الأشرطة في علم فلسطين من الأعلى إلى الأسفل؟',
     answers: [
       AnswerModel(content: 'أسود، أبيض، أخضر', isTrue: true),
       AnswerModel(content: 'أخضر، أبيض، أسود', isTrue: false),
       AnswerModel(content: 'أبيض، أخضر، أسود', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي عام تم اعتماد علم فلسطين رسميًا؟',
     answers: [
@@ -730,7 +698,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'غزوة بدر', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'من هو الصحابي الذي فتح القدس؟',
     answers: [
@@ -739,16 +706,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'عمر بن الخطاب', isTrue: true),
     ],
   ),
-
   QuestionModel(
-    title: 'ما اسم المسجد الذي يُعتقد أن النبي محمد صلى فيه مع الأنبياء في ليلة الإسراء؟',
+    title:
+        'ما اسم المسجد الذي يُعتقد أن النبي محمد صلى فيه مع الأنبياء في ليلة الإسراء؟',
     answers: [
       AnswerModel(content: 'المسجد الأقصى', isTrue: true),
       AnswerModel(content: 'مسجد قباء', isTrue: false),
       AnswerModel(content: 'مسجد النبوي', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أي عام تم فيه فتح بيت المقدس على يد صلاح الدين الأيوبي؟',
     answers: [
@@ -757,7 +723,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: '1291م', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هو اسم البوابة الرئيسية للمسجد الأقصى؟',
     answers: [
@@ -766,7 +731,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'باب الخليل', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما اسم الصحابي الذي دفن في القدس؟',
     answers: [
@@ -775,7 +739,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'معاذ بن جبل', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما الاسم الآخر لمسجد الصخرة المشرفة؟',
     answers: [
@@ -784,7 +747,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'قبة النبي', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أين يقع مقام النبي موسى عليه السلام؟',
     answers: [
@@ -793,7 +755,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'بيت لحم', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هي المدينة التي يوجد بها مقام النبي يونس عليه السلام؟',
     answers: [
@@ -802,7 +763,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الخليل', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هي السورة التي ذُكر فيها المسجد الأقصى؟',
     answers: [
@@ -810,7 +770,8 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'سورة الكهف', isTrue: false),
       AnswerModel(content: 'سورة يوسف', isTrue: false),
     ],
-  ),QuestionModel(
+  ),
+  QuestionModel(
     title: 'من هو الخليفة الذي بنى قبة الصخرة؟',
     answers: [
       AnswerModel(content: 'الوليد بن عبد الملك', isTrue: false),
@@ -818,16 +779,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'عبد الملك بن مروان', isTrue: true),
     ],
   ),
-
   QuestionModel(
-    title: 'ما اسم المعركة التي حرر فيها صلاح الدين الأيوبي بيت المقدس من الصليبيين؟',
+    title:
+        'ما اسم المعركة التي حرر فيها صلاح الدين الأيوبي بيت المقدس من الصليبيين؟',
     answers: [
       AnswerModel(content: 'معركة حطين', isTrue: true),
       AnswerModel(content: 'معركة عين جالوت', isTrue: false),
       AnswerModel(content: 'معركة القادسية', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'أين يقع مسجد عمر بن الخطاب في فلسطين؟',
     answers: [
@@ -836,7 +796,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'رام الله', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هي المدينة التي عُرفت بأنها مدينة الأنبياء؟',
     answers: [
@@ -845,7 +804,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الخليل', isTrue: true),
     ],
   ),
-
   QuestionModel(
     title: 'أين يقع مقام النبي داود عليه السلام؟',
     answers: [
@@ -854,16 +812,15 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'بيت لحم', isTrue: false),
     ],
   ),
-
   QuestionModel(
-    title: 'ما اسم الباب الذي يُعتقد أن المسيح عيسى بن مريم سيعود من خلاله في آخر الزمان؟',
+    title:
+        'ما اسم الباب الذي يُعتقد أن المسيح عيسى بن مريم سيعود من خلاله في آخر الزمان؟',
     answers: [
       AnswerModel(content: 'باب العمود', isTrue: false),
       AnswerModel(content: 'باب الرحمة', isTrue: true),
       AnswerModel(content: 'باب الأسباط', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هي السورة التي ذكرت بركة الأرض المقدسة (فلسطين)؟',
     answers: [
@@ -879,7 +836,8 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'البحر الميت', isTrue: false),
       AnswerModel(content: 'البحر الأبيض المتوسط', isTrue: true),
     ],
-  ),QuestionModel(
+  ),
+  QuestionModel(
     title: 'أي من هذه المدن تضم كنيسة المهد؟',
     answers: [
       AnswerModel(content: 'القدس', isTrue: false),
@@ -887,7 +845,6 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'الناصرة', isTrue: false),
     ],
   ),
-
   QuestionModel(
     title: 'ما هو الاسم الذي يُطلق على الصحراء التي تقع في جنوب فلسطين؟',
     answers: [
@@ -928,13 +885,149 @@ List<QuestionModel> questionsList = [
       AnswerModel(content: 'بئر الرمة', isTrue: true),
     ],
   ),
-
   QuestionModel(
-    title: 'ما اسم المسجد الذي يُعتقد أنه ثاني أقدم مسجد بُني في فلسطين بعد المسجد الأقصى؟',
+    title:
+        'ما اسم المسجد الذي يُعتقد أنه ثاني أقدم مسجد بُني في فلسطين بعد المسجد الأقصى؟',
     answers: [
       AnswerModel(content: 'مسجد الخليل', isTrue: false),
       AnswerModel(content: 'مسجد النبي صموئيل', isTrue: false),
       AnswerModel(content: 'مسجد الجزار في عكا', isTrue: true),
+    ],
+  ),
+  QuestionModel(
+    title: 'في أي مدينة فلسطينية يقع مقام النبي صالح؟',
+    answers: [
+      AnswerModel(content: 'الخليل', isTrue: false),
+      AnswerModel(content: 'نابلس', isTrue: true),
+      AnswerModel(content: 'رام الله', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما اسم المتحف الذي يضم تاريخ وثقافة فلسطين في مدينة رام الله؟',
+    answers: [
+      AnswerModel(content: 'متحف القدس', isTrue: false),
+      AnswerModel(content: 'متحف فلسطين الوطني', isTrue: true),
+      AnswerModel(content: 'متحف التراث الفلسطيني', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما هي المدينة التي تضم أقدم ميناء في العالم؟',
+    answers: [
+      AnswerModel(content: 'يافا', isTrue: true),
+      AnswerModel(content: 'غزة', isTrue: false),
+      AnswerModel(content: 'عكا', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما هي المدينة الفلسطينية التي تعرف بأنها مدينة الشهداء؟',
+    answers: [
+      AnswerModel(content: 'جنين', isTrue: true),
+      AnswerModel(content: 'نابلس', isTrue: false),
+      AnswerModel(content: 'خان يونس', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه الجبال يُعتبر الأعلى في الضفة الغربية؟',
+    answers: [
+      AnswerModel(content: 'جبل الكرمل', isTrue: false),
+      AnswerModel(content: 'جبل جرزيم', isTrue: true),
+      AnswerModel(content: 'جبل الطور', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما اسم الميناء الفلسطيني الشهير الذي يقع في الضفة الغربية؟',
+    answers: [
+      AnswerModel(content: 'ميناء يافا', isTrue: false),
+      AnswerModel(content: 'ميناء غزة', isTrue: false),
+      AnswerModel(content: 'ميناء حيفا', isTrue: true),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما هو اسم الجبل الذي يقع في مدينة نابلس ويشتهر بقصصه التاريخية؟',
+    answers: [
+      AnswerModel(content: 'جبل عيبال', isTrue: true),
+      AnswerModel(content: 'جبل الطور', isTrue: false),
+      AnswerModel(content: 'جبل جرزيم', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما هو الاسم التاريخي لمدينة طولكرم؟',
+    answers: [
+      AnswerModel(content: 'تارميا', isTrue: true),
+      AnswerModel(content: 'طولكرم القديمة', isTrue: false),
+      AnswerModel(content: 'تولارما', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه المدن تعتبر مركزًا للأدب والشعر في فلسطين؟',
+    answers: [
+      AnswerModel(content: 'نابلس', isTrue: true),
+      AnswerModel(content: 'الخليل', isTrue: false),
+      AnswerModel(content: 'غزة', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title:
+        'ما هو اسم المحمية الطبيعية الفلسطينية التي تقع في الضفة الغربية وتشتهر بتنوعها البيولوجي؟',
+    answers: [
+      AnswerModel(content: 'محمية وادي القف', isTrue: true),
+      AnswerModel(content: 'محمية الجرمق', isTrue: false),
+      AnswerModel(content: 'محمية عين الفاشخة', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه المدن الفلسطينية تشتهر بالتصميم المعماري العربي القديم؟',
+    answers: [
+      AnswerModel(content: 'عكا', isTrue: true),
+      AnswerModel(content: 'القدس', isTrue: false),
+      AnswerModel(content: 'نابلس', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه القرى تعتبر مركزًا لإنتاج الفخار التقليدي في فلسطين؟',
+    answers: [
+      AnswerModel(content: 'الخليل', isTrue: false),
+      AnswerModel(content: 'الزبابدة', isTrue: true),
+      AnswerModel(content: 'بيت لحم', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه المدن تعتبر موقعًا لأقدم كنيسة معروفة في العالم؟',
+    answers: [
+      AnswerModel(content: 'بيت لحم', isTrue: true),
+      AnswerModel(content: 'القدس', isTrue: false),
+      AnswerModel(content: 'نابلس', isTrue: false),
+    ],
+  ),QuestionModel(
+    title: 'ما هي المدينة الفلسطينية التي تعرف بكونها مسقط رأس النبي إبراهيم؟',
+    answers: [
+      AnswerModel(content: 'الخليل', isTrue: true),
+      AnswerModel(content: 'أريحا', isTrue: false),
+      AnswerModel(content: 'بيت لحم', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه المدن تقع في القسم الشمالي الغربي من الضفة الغربية؟',
+    answers: [
+      AnswerModel(content: 'قلقيلية', isTrue: true),
+      AnswerModel(content: 'أريحا', isTrue: false),
+      AnswerModel(content: 'الخليل', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'ما هي المدينة الفلسطينية التي تعرف بأنها مدينة البرتقال؟',
+    answers: [
+      AnswerModel(content: 'يافا', isTrue: true),
+      AnswerModel(content: 'نابلس', isTrue: false),
+      AnswerModel(content: 'الخليل', isTrue: false),
+    ],
+  ),
+  QuestionModel(
+    title: 'أي من هذه المدن تشتهر بكونها مدينة الجدران القديمة والأبواب التاريخية؟',
+    answers: [
+      AnswerModel(content: 'عكا', isTrue: true),
+      AnswerModel(content: 'غزة', isTrue: false),
+      AnswerModel(content: 'الخليل', isTrue: false),
     ],
   ),
 

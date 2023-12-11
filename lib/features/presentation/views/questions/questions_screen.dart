@@ -70,7 +70,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void initState() {
     super.initState();
     questions = List<QuestionModel>.from(questionsList)..shuffle(Random());
-    questions = questions.take(3).toList();
+    questions = questions.take(10).toList();
     getDegree();
     Future.delayed(const Duration(seconds: 1)).then((value) {
       setState(() {
@@ -321,9 +321,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       width: context.screenWidth,
                                       height: 60,
                                       function: () async{
+                                        int plus = 0;
+                                        if(degrees > 5){
+                                          plus = (degrees - 5) * 2;
+                                        }
                                         if(isEnd){
-                                          print('DEGREE:$degrees');
-                                          await appPreferences.setExamPoints(points: degrees);
+                                          await appPreferences.setExamPoints(points: plus);
                                         }
                                         setState(() {
                                           if (!isEnd) {
@@ -337,7 +340,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                             }
                                           } else {
                                             showResult = true;
-                                            points += degrees;
+                                            points += plus;
                                             exams +=1;
                                           }
                                         });
@@ -361,6 +364,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   }
 
   Widget resultWidget(BuildContext context) {
+    int plus = 0;
+    if(degrees > 5){
+      plus = (degrees - 5) * 2;
+    }
     return Stack(
       children: [
         Positioned.fill(
@@ -378,7 +385,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         myNum: '${questions.length}',
                         color: AppColors.nearBlack),
                     buildItem(context,
-                        title: 'نقاط مضافة', myNum: '+$degrees', color: AppColors.info),
+                        title: 'نقاط مضافة', myNum: '+$plus', color: AppColors.info),
                   ],
                 ),
                 30.heightSizedBox,
