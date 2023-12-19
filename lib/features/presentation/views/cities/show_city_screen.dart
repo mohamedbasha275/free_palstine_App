@@ -75,7 +75,7 @@ class ShowCityScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: context.screenHeight * 0.66,
+              height: context.screenHeight * 0.64,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

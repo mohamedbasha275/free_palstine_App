@@ -37,8 +37,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             'أهلاً بعودتك ،',
-                            style:
-                                TextStyle(fontSize: 22, color: Colors.grey),
+                            style: TextStyle(fontSize: 22, color: Colors.grey),
                           ),
                           Icon(
                             Icons.waving_hand_rounded,
@@ -121,9 +120,9 @@ class HomeScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
-                                    image: NetworkImage(state.news[index].image!),
+                                    image:
+                                        NetworkImage(state.news[index].image!),
                                     fit: BoxFit.cover,
-
                                   ),
                                 ),
                                 child: Container(
@@ -137,8 +136,8 @@ class HomeScreen extends StatelessWidget {
                                           .textTheme
                                           .labelMedium!
                                           .copyWith(
-                                        color: AppColors.white,
-                                      )),
+                                            color: AppColors.white,
+                                          )),
                                 ),
                               );
                             },
@@ -251,7 +250,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: 200,
+                          width: context.screenWidth * 0.5,
                           child: Text(
                             'فلسطين تاريخ لا يمكن إنكاره ، وهوية لن تمحي.',
                             style: Theme.of(context)
