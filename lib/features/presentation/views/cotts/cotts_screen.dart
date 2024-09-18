@@ -75,7 +75,7 @@ class _CottsScreenState extends State<CottsScreen> {
                     onPressed: () {
                       pushAndRemoveRoute(context, Routes.home);
                     },
-                    icon: Image.asset('assets/images/home.png'),
+                    icon: Image.asset('assets/images/home.png',width: 35),
                   ),
                 ),
               ],

@@ -43,13 +43,13 @@ class ShowCityScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: Image.asset('assets/images/back.png'),
+                            icon: Image.asset('assets/images/back.png',width: 35),
                           ),
                           IconButton(
                             onPressed: () {
                               pushAndRemoveRoute(context, Routes.home);
                             },
-                            icon: Image.asset('assets/images/home.png'),
+                            icon: Image.asset('assets/images/home.png',width: 35),
                           ),
                         ],
                       ),
@@ -94,7 +94,7 @@ class ShowCityScreen extends StatelessWidget {
                       height: 60,
                       child: Column(
                         children: [
-                          10.heightSizedBox,
+                          8.heightSizedBox,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

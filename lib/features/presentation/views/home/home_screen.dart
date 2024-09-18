@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                         width: 60,
                       ),
                       10.widthSizedBox,
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             'أهلاً بعودتك ،',
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       pushRoute(context, Routes.questions);
                     },
-                    child: Text(
+                    child: const Text(
                       'أختبار الآن',
                       style: TextStyle(
                         fontSize: 18,
@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                            Color.fromRGBO(65, 128, 64, 1))),
+                            const Color.fromRGBO(65, 128, 64, 1))),
                   )
                 ],
               ),
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                   if (state is NewsLoading) {
                     return const CircularProgressIndicator();
                   } else if (state is NewsFailure) {
-                    return Center(
+                    return const Center(
                       child: Column(
                         children: [
                           Text('يوجد خطأ في تحميل الأخبار'),
@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'أخر الأخبار',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
@@ -99,9 +99,10 @@ class HomeScreen extends StatelessWidget {
                               onPressed: () {
                                 pushRoute(context, Routes.news);
                               },
-                              child: Text(
+                              child: const Text(
                                 'عرض المزيد',
                                 style: TextStyle(
+                                  color: Colors.cyan,
                                     fontSize: 18, fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -145,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                               height: 200,
                               initialPage: 0,
                               autoPlay: true,
-                              autoPlayInterval: Duration(seconds: 8),
+                              autoPlayInterval: const Duration(seconds: 8),
                               viewportFraction: 0.9,
                               enableInfiniteScroll: true,
                             ),
@@ -162,7 +163,7 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'مدن فلسطين',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                   ),
@@ -170,10 +171,11 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       pushRoute(context, Routes.cities);
                     },
-                    child: Text(
+                    child: const Text(
                       'عرض الكل',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          color: Colors.cyan,
+                          fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
@@ -232,7 +234,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 alignment: Alignment.bottomRight,
                 height: 150,
-                color: Color.fromRGBO(230, 230, 230, 1),
+                color: const Color.fromRGBO(230, 230, 230, 1),
                 width: double.infinity,
                 child: Row(
                   children: [
@@ -244,7 +246,7 @@ class HomeScreen extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -266,7 +268,13 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {
                             pushRoute(context, Routes.history);
                           },
-                          child: Row(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.cyan,
+                            shape:RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                          ),
+                          child: const Row(
                             children: [
                               Text(
                                 'معرفة المزيد',
@@ -282,11 +290,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40))),
-                          ),
                         ),
                       ],
                     ),
@@ -297,7 +300,7 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'مقاطعات',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                   ),
@@ -305,10 +308,10 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       pushRoute(context, Routes.boyCotts);
                     },
-                    child: Text(
+                    child: const Text(
                       'عرض الكل',
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          TextStyle(color: Colors.cyan,fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],

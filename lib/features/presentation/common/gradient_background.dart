@@ -68,7 +68,7 @@ Widget _buildBackButton(BuildContext context) {
     onPressed: () {
        Navigator.of(context).pop();
     },
-    icon: Image.asset('assets/images/back.png'),
+    icon: Image.asset('assets/images/back.png',width: 35),
   );
 }
 Widget _buildHomeButton(BuildContext context) {
@@ -76,6 +76,6 @@ Widget _buildHomeButton(BuildContext context) {
     onPressed: () {
       pushRoute(context, Routes.home);
     },
-    icon: Image.asset('assets/images/home.png'),
+    icon: Image.asset('assets/images/home.png',width: 35),
   );
 }
