@@ -32,7 +32,7 @@ Future<void> _initializeApp() async {
 Future<Widget> _getStartWidget() async {
   AppPreferences appPreferences = getIt.get<AppPreferences>();
   if (await appPreferences.isOnBoardingScreenViewed()) {
-    return const HomeScreen();
+    return const OnBoardingScreen();
   } else {
     return const OnBoardingScreen();
   }

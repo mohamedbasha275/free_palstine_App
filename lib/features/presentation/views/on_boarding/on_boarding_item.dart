@@ -1,11 +1,8 @@
 import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/resources/app_colors.dart';
 import 'package:free_palestine/core/resources/app_fonts.dart';
-import 'package:free_palestine/core/resources/app_strings.dart';
-import 'package:free_palestine/core/resources/values_manager.dart';
 import 'package:free_palestine/features/data/models/boarding_model.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class OnBoardingItem extends StatelessWidget {
   final BoardingModel model;
@@ -22,7 +19,7 @@ class OnBoardingItem extends StatelessWidget {
           width: context.screenWidth,
           decoration: BoxDecoration(
             color: Colors.deepOrangeAccent.withOpacity(0.2),
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
             ),

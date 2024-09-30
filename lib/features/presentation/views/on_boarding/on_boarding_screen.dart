@@ -1,6 +1,4 @@
-import 'package:free_palestine/core/extension/extensions.dart';
 import 'package:free_palestine/core/helper_functions/route_navigation.dart';
-import 'package:free_palestine/core/resources/app_colors.dart';
 import 'package:free_palestine/core/resources/app_constants.dart';
 import 'package:free_palestine/core/resources/app_fonts.dart';
 import 'package:free_palestine/core/resources/app_routers.dart';
@@ -33,104 +31,101 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           listener: (context, state) {},
           builder: (context, state) {
             var cubit = OnBoardingCubit.get(context);
-            return Container(
-              //padding: const EdgeInsets.all(AppPadding.p30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: PageView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      controller: boardController,
-                      onPageChanged: (index) {
-                        cubit.changePage(index: index);
-                        setState(() {
-                          currentPage = index +1;
-                        });
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    controller: boardController,
+                    onPageChanged: (index) {
+                      cubit.changePage(index: index);
+                      setState(() {
+                        currentPage = index +1;
+                      });
+                    },
+                    itemBuilder: (context, index) =>
+                        OnBoardingItem(model: cubit.boardingPages[index]),
+                    itemCount: cubit.boardingPages.length,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        pushAndRemoveRoute(context, Routes.home);
+                        cubit.setOnBoardingViewed();
                       },
-                      itemBuilder: (context, index) =>
-                          OnBoardingItem(model: cubit.boardingPages[index]),
-                      itemCount: cubit.boardingPages.length,
+                      child: Text(
+                        'تخطـي',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(fontSize: FontSize.s20),
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextButton(
+                    SmoothPageIndicator(
+                      controller: boardController,
+                      effect: const ExpandingDotsEffect(
+                        dotColor: Colors.grey,
+                        activeDotColor: Color.fromRGBO(65, 128, 64, 1),
+                        dotHeight: AppSize.s10,
+                        expansionFactor: AppSize.s4,
+                        dotWidth: AppSize.s10,
+                        spacing: AppSize.s5,
+                      ),
+                      count: cubit.boardingPages.length,
+                    ),
+                    CircularPercentIndicator(
+                      radius: 35,
+                      center: TextButton(
+                        style: ButtonStyle(
+                          enableFeedback: false,
+                          overlayColor: MaterialStateProperty.all(
+                            Colors.transparent
+                          )
+                        ),
                         onPressed: () {
-                          pushAndRemoveRoute(context, Routes.home);
-                          cubit.setOnBoardingViewed();
+                          if (cubit.isLast) {
+                            pushAndRemoveRoute(context, Routes.home);
+                            cubit.setOnBoardingViewed();
+                          } else {
+                            boardController.nextPage(
+                              duration: const Duration(
+                                milliseconds:
+                                    AppConstants.onBoardingPageSpeed,
+                              ),
+                              curve: Curves.fastLinearToSlowEaseIn,
+                            );
+                          }
                         },
-                        child: Text(
-                          'تخطـي',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineMedium!
-                              .copyWith(fontSize: FontSize.s20),
-                        ),
-                      ),
-                      SmoothPageIndicator(
-                        controller: boardController,
-                        effect: ExpandingDotsEffect(
-                          dotColor: Colors.grey,
-                          activeDotColor: Color.fromRGBO(65, 128, 64, 1),
-                          dotHeight: AppSize.s10,
-                          expansionFactor: AppSize.s4,
-                          dotWidth: AppSize.s10,
-                          spacing: AppSize.s5,
-                        ),
-                        count: cubit.boardingPages.length,
-                      ),
-                      CircularPercentIndicator(
-                        radius: 35,
-                        center: TextButton(
-                          style: ButtonStyle(
-                            enableFeedback: false,
-                            overlayColor: MaterialStateProperty.all(
-                              Colors.transparent
-                            )
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: (cubit.isLast)
+                                ? const Color.fromRGBO(65, 128, 64, 1)
+                                : Colors.deepOrangeAccent.withOpacity(0.4),
                           ),
-                          onPressed: () {
-                            if (cubit.isLast) {
-                              pushAndRemoveRoute(context, Routes.home);
-                              cubit.setOnBoardingViewed();
-                            } else {
-                              boardController.nextPage(
-                                duration: const Duration(
-                                  milliseconds:
-                                      AppConstants.onBoardingPageSpeed,
-                                ),
-                                curve: Curves.fastLinearToSlowEaseIn,
-                              );
-                            }
-                          },
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: (cubit.isLast)
-                                  ? Color.fromRGBO(65, 128, 64, 1)
-                                  : Colors.deepOrangeAccent.withOpacity(0.4),
-                            ),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
-                            ),
+                          child: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
                           ),
                         ),
-                        percent: currentPage / cubit.boardingPages.length,
-                        backgroundColor: Colors.grey.withOpacity(0.5),
-                        progressColor: cubit.isLast ?  Color.fromRGBO(65, 128, 64, 1): Colors.cyan,
-                        animateFromLastPercent: true,
+                      ),
+                      percent: currentPage / cubit.boardingPages.length,
+                      backgroundColor: Colors.grey.withOpacity(0.5),
+                      progressColor: cubit.isLast ?  const Color.fromRGBO(65, 128, 64, 1): Colors.cyan,
+                      animateFromLastPercent: true,
 
-                        animation: true,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: AppSize.s40),
-                ],
-              ),
+                      animation: true,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSize.s40),
+              ],
             );
           },
         ),

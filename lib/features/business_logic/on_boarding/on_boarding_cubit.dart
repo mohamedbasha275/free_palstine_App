@@ -1,7 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:free_palestine/core/di/service_locator.dart';
 import 'package:free_palestine/core/resources/app_assets.dart';
-import 'package:free_palestine/core/resources/app_strings.dart';
 import 'package:free_palestine/core/shared_preferences/app_prefs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
